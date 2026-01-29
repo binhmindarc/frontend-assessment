@@ -1,0 +1,26 @@
+.heading-underline {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.heading-underline::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(to right, #60a5fa, #fde047);
+  border-radius: 9999px;
+  transform: translateX(-50%);
+  transition: all 0.5s cubic-bezier(0.4,0,0.2,1);
+}
+
+.heading-underline:hover::after,
+.heading-underline:focus::after,
+.heading-underline.group:hover::after {
+  left: 0;
+  width: 100%;
+  transform: translateX(0);
+}

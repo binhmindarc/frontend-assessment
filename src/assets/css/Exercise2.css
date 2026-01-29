@@ -1,0 +1,24 @@
+.tab-btn {
+  position: relative;
+  overflow: hidden;
+  transition: color 0.3s;
+}
+
+.tab-btn::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  height: 4px;
+  width: 0;
+  background: linear-gradient(to right, #000, #000);
+  border-radius: 9999px;
+  transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
+  transform: translateX(-50%);
+}
+
+.tab-btn.active::after {
+  left: 0;
+  width: 100%;
+  transform: translateX(0);
+}
