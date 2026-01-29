@@ -79,11 +79,7 @@ const Exercise2 = () => {
                   </svg>
                 </button>
                 <div
-                  className={`transition-all duration-600 ease-in-out overflow-hidden`}
-                  style={{
-                    maxHeight: activeIndex === index ? 500 : 0,
-                    opacity: activeIndex === index ? 1 : 0,
-                  }}
+                  className={`transition-all duration-600 ease-in-out overflow-hidden ${activeIndex === index ? 'max-h-auto opacity-100' : 'max-h-0 opacity-0'}`}
                 >
                   <div
                     className="mt-4 px-6 pb-6 leading-relaxed text-gray-800"

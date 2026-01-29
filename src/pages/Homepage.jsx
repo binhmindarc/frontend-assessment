@@ -5,8 +5,8 @@ const Homepage = () => {
     const navigate = useNavigate();
     return (
         <div className="homepage  min-h-screen ">
-            <div className="exercises-grid">
-                <div className="text-center mt-4">
+            <div className="exercises-grid p-4">
+                <div className="text-center">
                     <h1 className="heading-underline text-[50px] font-bold relative inline-block group cursor-pointer">
                         Frontend Assessment
                     </h1>

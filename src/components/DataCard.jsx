@@ -4,17 +4,21 @@ const DataCard = ({ image, content, url }) => {
     <div className="bg-white rounded-lg p-6 shadow-[0_2px_10px_rgba(0,0,0,0.1)] transition-all duration-300 hover:transform hover:-translate-y-2 hover:shadow-[0_4px_20px_rgba(0,0,0,0.15)] flex flex-col h-full">
       <div className="card-image">
         {image ? (
-          <img
-            src={image.url}
-            alt={image.alt || "Image"}
-            className="w-full h-auto rounded-lg mb-4"
-          />
+          <a href="#">
+            <img
+              src={image.url}
+              alt={image.alt || "Image"}
+              className="w-full h-auto rounded-lg mb-4"
+            />
+          </a>
         ) : (
-          <img
-            src="https://placehold.co/400x300"
-            alt="Placeholder image"
-            className="w-full h-auto rounded-lg mb-4"
-          />
+          <a href="#">
+            <img
+              src="https://placehold.co/400x300"
+              alt="Placeholder image"
+              className="w-full h-auto rounded-lg mb-4"
+            />
+          </a>
         )}
       </div>
       <div className="card-info flex-1 flex flex-col">
