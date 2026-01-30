@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import Accordion from '../components/Accordion'
 import { exercise2 } from '../data/data'
 import '../assets/css/Exercise2.css'
 
@@ -58,37 +59,18 @@ const Exercise2 = () => {
         )}
 
         {exercise2.length > 0 && (
-          <div className="md:hidden space-y-4">
-            {exercise2.map((item, index) => (
-              <div key={item.id} className="bg-white rounded-lg shadow-[0_2px_10px_rgba(0,0,0,0.1)] overflow-hidden">
-                <button
+            <div className="md:hidden space-y-4">
+              {exercise2.map((item, index) => (
+                <Accordion
+                  key={item.id}
+                  title={item.title}
+                  isOpen={activeIndex === index}
                   onClick={() => handleAccordionClick(index)}
-                  className={`tab-btn flex items-center justify-between w-full p-6 text-left font-medium transition-colors duration-300 ${activeIndex === index ? 'active' : ''}`}
                 >
-                  <span className="text-lg">
-                    {item.title}
-                  </span>
-                  <svg
-                    className={`w-6 h-6 ml-2 transition-transform duration-300 ${activeIndex === index ? 'rotate-180' : ''}`}
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                    viewBox="0 0 24 24"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                  </svg>
-                </button>
-                <div
-                  className={`transition-all duration-600 ease-in-out overflow-hidden ${activeIndex === index ? 'max-h-auto opacity-100' : 'max-h-0 opacity-0'}`}
-                >
-                  <div
-                    className="mt-4 px-6 pb-6 leading-relaxed text-gray-800"
-                    dangerouslySetInnerHTML={{ __html: item.content }}
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
+                  <div dangerouslySetInnerHTML={{ __html: item.content }} />
+                </Accordion>
+              ))}
+            </div>
         )}
       </div>
     </div >
