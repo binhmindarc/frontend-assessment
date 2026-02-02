@@ -23,13 +23,13 @@ const DataCard = ({ image, content, url }) => {
       </div>
       <div className="card-info flex-1 flex flex-col">
         {content && (
-          <p className="text-gray-600 leading-relaxed text-center flex-1">
+          <p className="text-black leading-relaxed text-center flex-1">
             {content}
           </p>
         )}
         {url && (
-          <div className="mt-10 text-center">
-            <a href={url} className="cursor-pointer border-2 uppercase font-bold border-black hover:border-black hover:bg-black hover:text-white rounded-full px-4 py-2 transition-colors duration-300">
+          <div className="mt-5 text-center">
+            <a href={url} className="cursor-pointer border-3 uppercase font-bold border-black hover:border-black hover:bg-black hover:text-white rounded-full px-4 py-2 transition-colors duration-300 tracking-[2px]">
               Read more
             </a>
           </div>
