@@ -6,13 +6,25 @@ const Accordion = ({ title, isOpen, onClick, children }) => {
     const [maxHeight, setMaxHeight] = useState('0px');
 
     useEffect(() => {
-        const handleResize = () => {
-            if (window.innerWidth < 768 && isOpen && contentRef.current) {
-                setMaxHeight(contentRef.current.scrollHeight + 'px');
+        const updateHeight = () => {
+            if (window.innerWidth < 768) {
+                if (isOpen && contentRef.current) {
+                    setMaxHeight(contentRef.current.scrollHeight + 'px');
+                } else {
+                    setMaxHeight('0px');
+                }
+            } else {
+                setMaxHeight('auto');
             }
         };
+
+        updateHeight();
+
+        const handleResize = () => {
+            updateHeight();
+        };
+
         window.addEventListener('resize', handleResize);
-        handleResize();
         return () => window.removeEventListener('resize', handleResize);
     }, [isOpen]);
 
@@ -25,7 +37,6 @@ const Accordion = ({ title, isOpen, onClick, children }) => {
                 <span className="text-lg">
                     {title}
                 </span>
-
                 <svg
                     className={`w-6 h-6 ml-2 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}
                     fill="none"
@@ -39,7 +50,7 @@ const Accordion = ({ title, isOpen, onClick, children }) => {
             <div
                 className={`accordion-content transition-all duration-500 ease-in-out overflow-hidden ${isOpen ? 'opacity-100' : 'opacity-0'}`}
                 style={{
-                    maxHeight: isOpen ? maxHeight : '0px',
+                    maxHeight: maxHeight,
                 }}
             >
                 <div ref={contentRef} className="mt-4 px-6 pb-6 leading-relaxed text-gray-800">
