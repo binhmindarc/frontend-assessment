@@ -11,11 +11,11 @@ const Accordion = ({ title, isOpen, onClick, children }) => {
         } else {
             setMaxHeight('0px');
         }
-    }, [isOpen, children]);
+    }, [isOpen]);
 
     useEffect(() => {
         const handleResize = () => {
-            if (isOpen && contentRef.current) {
+            if (window.innerWidth < 768 && isOpen && contentRef.current) {
                 setMaxHeight(contentRef.current.scrollHeight + 'px');
             }
         };
