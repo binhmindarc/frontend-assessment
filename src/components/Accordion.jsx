@@ -6,14 +6,6 @@ const Accordion = ({ title, isOpen, onClick, children }) => {
     const [maxHeight, setMaxHeight] = useState('0px');
 
     useEffect(() => {
-        if (isOpen && contentRef.current) {
-            setMaxHeight(contentRef.current.scrollHeight + 'px');
-        } else {
-            setMaxHeight('0px');
-        }
-    }, [isOpen]);
-
-    useEffect(() => {
         const handleResize = () => {
             if (window.innerWidth < 768 && isOpen && contentRef.current) {
                 setMaxHeight(contentRef.current.scrollHeight + 'px');
